@@ -12,12 +12,12 @@ notes.get('/', (req, res) => {
 });
 
 // GET Route for a specific tip
-notes.get('/:note_id', (req, res) => {
-  const tipId = req.params.note_id;
+notes.get('/:id', (req, res) => {
+  const noteId = req.params.id;
   readFromFile('./db/notes.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
-      const result = json.filter((note) => note.note_id === noteId);
+      const result = json.filter((note) => note.id === noteId);
       return result.length > 0
         ? res.json(result)
         : res.json('No note with that ID');
@@ -25,8 +25,8 @@ notes.get('/:note_id', (req, res) => {
 });
 
 // DELETE Route for a specific tip
-notes.delete('/:note_id', (req, res) => {
-  const tipId = req.params.note_id;
+notes.delete('/:id', (req, res) => {
+  const noteId = req.params.id;
   readFromFile('./db/notes.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
@@ -45,20 +45,20 @@ notes.delete('/:note_id', (req, res) => {
 notes.post('/', (req, res) => {
   console.log(req.body);
 
-  const { username, topic, note } = req.body;
+  const { username, title, text } = req.body;
 
   if (req.body) {
-    const newTip = {
+    const newNote = {
       username,
-      tip,
-      topic,
-      tip_id: uuidv4(),
+      title,
+      text,
+      id: uuidv4(),
     };
 
-    readAndAppend(newTip, './db/notes.json');
-    res.json(`Tip added successfully`);
+    readAndAppend(newNote, './db/notes.json');
+    res.json(`Note added successfully`);
   } else {
-    res.error('Error in adding tip');
+    res.error('Error in adding note');
   }
 });
 
