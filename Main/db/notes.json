@@ -1,26 +1,17 @@
 [
     {
-        "title": "",
-        "text": ""
+        "title": "This is the note title",
+        "text": "This is the body of the note",
+        "id": "473c4d82-bf2f-4e6b-b54b-14f32eeb4033"
     },
     {
         "title": "asdf",
         "text": "asdf",
-        "id": "6d6405a9-7f08-4e3b-b09a-c23f498d3ec9"
+        "id": "696d257e-edee-4433-9664-398b3b4c51c5"
     },
     {
         "title": "asdf",
         "text": "asdf",
-        "id": "eb105b5c-93e6-4383-9c7a-da513571e25f"
-    },
-    {
-        "title": "asdf",
-        "text": "asdfasdfasdf",
-        "id": "d12b944c-7a35-4a81-8220-fc77eb0c756f"
-    },
-    {
-        "title": "asdfasdf",
-        "text": "asdfasdf",
-        "id": "eb1fcda0-a59a-43cf-b534-e5ba5b16474f"
+        "id": "77fd7e81-848e-41fd-88e5-cbe27ac79917"
     }
 ]

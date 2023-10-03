@@ -1,6 +1,7 @@
 let noteForm;
 let noteTitle;
 let noteText;
+let noteId;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
@@ -91,14 +92,21 @@ const handleNoteDelete = (e) => {
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
 
+  console.log('Delete button clicked for note ID:', noteId);
+
   if (activeNote.id === noteId) {
     activeNote = {};
   }
 
-  deleteNote(noteId).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
+  deleteNote(noteId)
+    .then(() => {
+      console.log(`${noteId} deleted successfully.`);
+      getAndRenderNotes();
+      renderActiveNote();
+    })
+    .catch((error) => {
+      console.error('Error deleting note:', error);
+    });
 };
 
 // Sets the activeNote and displays it
@@ -137,17 +145,17 @@ const renderNoteList = async (notes) => {
   let noteListItems = [];
 
   // Returns HTML element with or without a delete button
-  const createLi = (text, delBtn = true) => {
+  const createLi = (title, delBtn = true) => {
     const liEl = document.createElement('li');
     liEl.classList.add('list-group-item');
-
+  
     const spanEl = document.createElement('span');
     spanEl.classList.add('list-item-title');
-    spanEl.innerText = text;
+    spanEl.innerText = title; // Use title instead of id
     spanEl.addEventListener('click', handleNoteView);
-
+  
     liEl.append(spanEl);
-
+  
     if (delBtn) {
       const delBtnEl = document.createElement('i');
       delBtnEl.classList.add(
@@ -158,10 +166,11 @@ const renderNoteList = async (notes) => {
         'delete-note'
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
-
+      // Set the data-note attribute with the note's ID
+      liEl.setAttribute('data-note', note.id);
       liEl.append(delBtnEl);
     }
-
+  
     return liEl;
   };
 
@@ -170,7 +179,7 @@ const renderNoteList = async (notes) => {
   }
 
   jsonNotes.forEach((note) => {
-    const li = createLi(note.title);
+    const li = createLi(note.id, note.title);
     li.dataset.note = JSON.stringify(note);
 
     noteListItems.push(li);
