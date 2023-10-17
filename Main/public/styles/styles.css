@@ -71,8 +71,12 @@ body {
 }
 
 .list-container .list-group-item {
+  /* display: flex !important;
+justify-content: space-between !important; */
+  align-items: center;
   border-left: none;
   border-right: none;
   padding: 20px;
   cursor: pointer;
 }
+
