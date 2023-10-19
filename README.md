@@ -15,16 +15,19 @@
 
 ## Installation
 
-The application is started by entering the url https://hershrva.github.io/WeatherDashboardApp/ into the browser.  The app is then able to be used without any further installation.
+The application is started by entering the url https://polar-spire-81435-54a21e88dcda.herokuapp.com/ into the browser.  The app is then able to be used without any further installation.
 
 ## Usage
 
-The application works by opening the url (https://hershrva.github.io/WeatherDashboardApp/) in a browser. (Screenshot #1)
-The user can then type any city in the search bar and hit enter or click the search button.  The application will then render the current weather and 5 day weather forecast for that location, as well as saving the search the the search history where those can be clicked to bring up that cities weather.
+The application works by opening the url (https://polar-spire-81435-54a21e88dcda.herokuapp.com/) in a browser. (Screenshot #1)
+The user can then click the "Get Started" button to enter into the note taking interface (Screenshot #2).  The user can then click on the note title and enter a title for their note as well as the note text to add comments or clarity on what the note means (Screenshot #3).  After entering the text the user can click the "Save Note" button at the top right to save the note or the "Clear Form" to clear the inputs to write a new note (Screenshot #4).  A second note can be added by simply clicking on the form and entering text and clicking the "Save Button" again.  They can also view their notes by simply clicking on the note to the left, or delete them by clicking the trashcan symbol to the right of each note (Screenshot #5).
 
 
-
-![Screenshot](Images/screenshot.png)
+![Screenshot](Images/screenshot1.png)
+![Screenshot](Images/screenshot2.png)
+![Screenshot](Images/screenshot3.png)
+![Screenshot](Images/screenshot4.png)
+![Screenshot](Images/screenshot5.png)
 
 ## License
 
